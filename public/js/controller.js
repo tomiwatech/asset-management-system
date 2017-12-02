@@ -40,7 +40,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     templateUrl: "templates/addasset.html"
                 }
             },
-            controller: 'assetController'
+            controller: 'assetController',
+            // onEnter: function () {
+            //     location.reload();
+            // }
         })
 
         .state('allassets', {
@@ -50,7 +53,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     templateUrl: "templates/allassets.html"
                 }
             },
-            controller: 'assetController'
+            controller: 'assetController',
         })
 
 
@@ -192,8 +195,8 @@ app.controller('assetController', function ($scope, $rootScope, $http) {
         $http.post('/assets', datum).then(function (response) {
             if (response.data.responseCode == "00") {
                 swal('Your Asset has been saved');
-                emptyFormFields();
-                $state.go('all assets')
+                // emptyFormFields();
+                $state.go('allassets')
             } else if (response.data.responseCode == "02") {
                 swal('Asset already exists');
                 emptyFormFields();
@@ -207,6 +210,32 @@ app.controller('assetController', function ($scope, $rootScope, $http) {
         })
 
 
+    }
+
+    $scope.deleteAsset = function (id) {
+
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result === true) {
+                console.log(id);
+                $http.delete('/assets/' + id).then(function (response) {
+                    console.log(response);
+                    refresh();
+                })
+                swal(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
     }
 
 })

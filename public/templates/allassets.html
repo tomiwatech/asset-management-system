@@ -99,6 +99,7 @@
                                             <th>Manufacturer</th>
                                             <th>Asset Status</th>
                                             <th>Asset Price</th>
+                                            <th>Delete Asset</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -109,6 +110,7 @@
                                             <td>{{asset.asset_manufacturer}}</td>
                                             <td>{{asset.asset_status}}</td>
                                             <td>{{asset.asset_price}}</td>
+                                            <td><button class="btn btn-danger" ng-click="deleteAsset(asset._id)">Remove</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -119,7 +121,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <!-- <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
                     <ul>
@@ -153,7 +155,7 @@
                     <a href="#">Amaze Admin</a>
                 </p>
             </div>
-        </footer>
+        </footer> -->
 
     </div>
 

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en" ng-app="Asset">
+
+
+<!-- Mirrored from www.urbanui.com/amaze/pages/sample-pages/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2017 05:27:38 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.html">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Amaze - Bootstrap Admin Dashboard Template</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Bootstrap core CSS     -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--  Paper Dashboard CSS    -->
+    <link href="/css/amaze.css" rel="stylesheet">
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="/css/demo.css" rel="stylesheet">
+
+    <!--     Fonts and icons     -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/font-muli.css" rel='stylesheet' type='text/css'>
+    <link href="/css/themify-icons.css" rel="stylesheet">
+
+    <link href="/vendors/sweetalert/css/sweetalert2.min.css" rel="Stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+</head>
+
+<body>
+    <div ui-view="layout"></div>
+
+    <!--   Core JS Files   -->
+
+    <script src="/js/angular.min.js"></script>
+    <!-- <script src="/js/angular.min.js.map"></script> -->
+    <script src="/js/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="/js/controller.js"></script>
+    <script src="/vendors/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="/vendors/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <script src="/vendors/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/vendors/material.min.js" type="text/javascript"></script>
+    <script src="/vendors/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="/vendors/jquery.validate.min.js"></script>
+    <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+    <script src="/vendors/moment.min.js"></script>
+    <!--  Charts Plugin -->
+    <script src="/vendors/chartist.min.js"></script>
+    <!--  Plugin for the Wizard -->
+    <script src="/vendors/jquery.bootstrap-wizard.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="/vendors/bootstrap-notify.js"></script>
+    <!-- DateTimePicker Plugin -->
+    <script src="/vendors/bootstrap-datetimepicker.js"></script>
+    <!-- Vector Map plugin -->
+    <script src="/vendors/jquery-jvectormap.js"></script>
+    <!-- Sliders Plugin -->
+    <script src="/vendors/nouislider.min.js"></script>
+    <!-- Select Plugin -->
+    <script src="/vendors/jquery.select-bootstrap.js"></script>
+    <!--  DataTables.net Plugin    -->
+    <script src="/vendors/jquery.datatables.js"></script>
+    <!-- Sweet Alert 2 plugin -->
+    <script src="/vendors/sweetalert/js/sweetalert2.min.js"></script>
+    <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="/vendors/jasny-bootstrap.min.js"></script>
+    <!--  Full Calendar Plugin    -->
+    <script src="/vendors/fullcalendar.min.js"></script>
+    <!-- TagsInput Plugin -->
+    <script src="/vendors/jquery.tagsinput.js"></script>
+    <!-- Material Dashboard javascript methods -->
+    <script src="/js/amaze.js"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="/js/demo.js"></script>
+    <script type="text/javascript">
+        $().ready(function () {
+            demo.checkFullPageBackgroundImage();
+
+            setTimeout(function () {
+                // after 1000 ms we add the class animated to the login/register card
+                $('.card').removeClass('card-hidden');
+            }, 700)
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            //Add blue animated border and remove with condition when focus and blur
+            if ($('.fg-line')[0]) {
+                $('body').on('focus', '.form-control', function () {
+                    $(this).closest('.fg-line').addClass('fg-toggled');
+                })
+
+                $('body').on('blur', '.form-control', function () {
+                    var p = $(this).closest('.form-group');
+                    var i = p.find('.form-control').val();
+
+                    if (p.hasClass('fg-float')) {
+                        if (i.length == 0) {
+                            $(this).closest('.fg-line').removeClass('fg-toggled');
+                        }
+                    }
+                    else {
+                        $(this).closest('.fg-line').removeClass('fg-toggled');
+                    }
+                });
+            }
+
+            //Add blue border for pre-valued fg-flot text feilds
+            if ($('.fg-float')[0]) {
+                $('.fg-float .form-control').each(function () {
+                    var i = $(this).val();
+
+                    if (!i.length == 0) {
+                        $(this).closest('.fg-line').addClass('fg-toggled');
+                    }
+
+                });
+            }
+
+
+            /*   Form Wizard Functions  */
+            /*--------------------------*/
+            _handleTabShow = function (tab, navigation, index, wizard) {
+                var total = navigation.find('li').length;
+                var current = index + 0;
+                var percent = (current / (total - 1)) * 100;
+                var percentWidth = 100 - (100 / total) + '%';
+
+                navigation.find('li').removeClass('done');
+                navigation.find('li.active').prevAll().addClass('done');
+
+                wizard.find('.progress-bar').css({ width: percent + '%' });
+                $('.form-wizard-horizontal').find('.progress').css({ 'width': percentWidth });
+            };
+
+            _updateHorizontalProgressBar = function (tab, navigation, index, wizard) {
+                var total = navigation.find('li').length;
+                var current = index + 0;
+                var percent = (current / (total - 1)) * 100;
+                var percentWidth = 100 - (100 / total) + '%';
+
+                wizard.find('.progress-bar').css({ width: percent + '%' });
+                wizard.find('.progress').css({ 'width': percentWidth });
+            };
+
+            /* Form Wizard - Example 1  */
+            /*--------------------------*/
+            $('#formwizard_simple').bootstrapWizard({
+                onTabShow: function (tab, navigation, index) {
+                    _updateHorizontalProgressBar(tab, navigation, index, $('#formwizard_simple'));
+                }
+            });
+
+            /* Form Wizard - Example 2  */
+            /*--------------------------*/
+
+            $('#formwizard_validation').bootstrapWizard({
+                onNext: function (tab, navigation, index) {
+                    var form = $('#formwizard_validation').find("form");
+                    var valid = true;
+
+                    if (index == 1) {
+                        var fname = form.find('#firstname');
+                        var lastname = form.find('#lastname');
+
+                        if (!fname.val()) {
+                            swal("You must enter your first name!");
+                            fname.focus();
+                            return false;
+                        }
+
+                        if (!lastname.val()) {
+                            swal("You must enter your last name!");
+                            lastname.focus();
+                            return false;
+                        }
+                    }
+
+                    if (!valid) {
+                        return false;
+                    }
+                },
+                onTabShow: function (tab, navigation, index) {
+                    _updateHorizontalProgressBar(tab, navigation, index, $('#formwizard_validation'));
+                }
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        $().ready(function () {
+            var $validator = $("#wizardForm").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true,
+                        minlength: 5
+                    },
+                    serial: {
+                        required: true
+                    },
+                    expiry: {
+                        required: true
+                    },
+                    asset_name: {
+                        required: true,
+                    },
+                    model_name: {
+                        required: true,
+                    },
+                    asset_type: {
+                        required: true,
+                    },
+                    asset_status: {
+                        required: true,
+                    },
+                    purchase_date: {
+                        required: true,
+                    },
+                    asset_price: {
+                        required: true,
+                    },
+                    manufacturer: {
+                        required: true,
+                    },
+                    website: {
+                        required: true,
+                        minlength: 5,
+                        url: true
+                    },
+                    framework: {
+                        required: false,
+                        minlength: 4
+                    },
+                    cities: {
+                        required: true
+                    },
+                    price: {
+                        number: true
+                    }
+                }
+            });
+
+            // you can also use the nav-pills-[blue | azure | green | orange | red] for a different color of wizard
+            $('#wizardCard').bootstrapWizard({
+                tabClass: 'nav nav-pills',
+                nextSelector: '.btn-next',
+                previousSelector: '.btn-back',
+                onNext: function (tab, navigation, index) {
+                    var $valid = $('#wizardForm').valid();
+
+                    if (!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    }
+                },
+                onInit: function (tab, navigation, index) {
+
+                    //check number of tabs and fill the entire row
+                    var $total = navigation.find('li').length;
+                    $width = 100 / $total;
+
+                    $display_width = $(document).width();
+
+                    if ($display_width < 600 && $total > 3) {
+                        $width = 50;
+                    }
+
+                    navigation.find('li').css('width', $width + '%');
+                },
+                onTabClick: function (tab, navigation, index) {
+                    // Disable the posibility to click on tabs
+                    return false;
+                },
+                onTabShow: function (tab, navigation, index) {
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+
+                    var wizard = navigation.closest('.card-wizard');
+
+                    // If it's the last tab then hide the last button and show the finish instead
+                    if ($current >= $total) {
+                        $(wizard).find('.btn-next').hide();
+                        $(wizard).find('.btn-finish').show();
+                    } else if ($current == 1) {
+                        $(wizard).find('.btn-back').hide();
+                    } else {
+                        $(wizard).find('.btn-back').show();
+                        $(wizard).find('.btn-next').show();
+                        $(wizard).find('.btn-finish').hide();
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+
+<!-- Mirrored from www.urbanui.com/amaze/pages/sample-pages/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2017 05:27:39 GMT -->
+
+</html>

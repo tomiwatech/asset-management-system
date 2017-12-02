@@ -1,0 +1,55 @@
+    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+            </div>
+        </div>
+    </nav>
+    <!-- {{message}} -->
+    <div class="wrapper wrapper-full-page" ng-controller="loginController">
+        <div class="full-page login-page" data-color="blue">
+            <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+
+                            <!-- <form method="#" action="#"> -->
+                            <div class="card card-login card-hidden">
+                                <div class="header text-center">
+                                    <h3 class="title">Login</h3>
+                                </div>
+                                <div class="content">
+                                    <!-- <h5 class="text-center">Login</h5> -->
+                                    <div class="form-group">
+                                        <label>username</label>
+                                        <input type="text" ng-model="data.username" placeholder="Enter username" class="form-control input-no-border" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" placeholder="Password" ng-model="data.password" class="form-control input-no-border" required>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button ng-click="login()" class="btn btn-rose btn-wd btn-lg">Sign In</button>
+                                    <br><br>
+                                    <p>New to Amaze?&nbsp;&nbsp;
+                                        <a ui-sref="signup">
+                            					<i class="ti-id-badge"></i> Register
+                        					</a>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

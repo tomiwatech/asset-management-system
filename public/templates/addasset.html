@@ -1,0 +1,279 @@
+<div class="wrapper" ng-controller="assetController">
+    <div class="sidebar" data-background-color="brown" data-active-color="danger">
+        <div class="logo">
+            <a href="#" class="simple-text">
+                    Asset Manager
+                </a>
+        </div>
+        <div class="logo logo-mini">
+            <a href="#" class="simple-text">
+                    A
+                </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="active">
+                    <a ui-sref="home">
+                            <i class="ti-panel"></i>
+                            <p>Dashboard</p>
+                        </a>
+                </li>
+                <li>
+                    <a ui-sref="addasset">
+							<i class="ti-clipboard"></i>
+							<p>Add Asset</p>
+						</a>
+                </li>
+                <li>
+                    <a ui-sref="allassets" >
+							<i class="ti-clipboard"></i>
+							<p>View Assets</p>
+						</a>
+                </li>
+                <li>
+                    <a href="docs/documentation.html">
+							<i class="ti-clipboard"></i>
+							<p>License</p>
+						</a>
+                </li>
+                <li>
+                    <a href="docs/documentation.html">
+							<i class="ti-clipboard"></i>
+							<p>Asset Categories</p>
+						</a>
+                </li>
+                <li>
+                    <a href="docs/documentation.html">
+							<i class="ti-clipboard"></i>
+							<p>Track Assets</p>
+						</a>
+                </li>
+                <li>
+                    <a href="docs/documentation.html">
+							<i class="ti-clipboard"></i>
+							<p>Maintain Assets</p>
+						</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-minimize">
+                    <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+							<i class="ti-arrow-left"></i>
+                        </button>
+                </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="#"> Asset Management System</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="card card-wizard" id="wizardCard">
+                        <form id="wizardForm">
+                            <div class="header text-center">
+                                <h4 class="title">Add New Asset</h4>
+                                <p class="category">Split a complicated flow in multiple steps</p>
+                            </div>
+                            <div class="content">
+                                <ul class="nav">
+                                    <li><a href="#tab1" data-toggle="tab">First Tab</a></li>
+                                    <li><a href="#tab2" data-toggle="tab">Second Tab</a></li>
+                                    <li><a href="#tab3" data-toggle="tab">Third Tab</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="tab1">
+                                        <h5 class="text-center">Please tell us more about yourself.</h5>
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Asset Name
+															</label>
+                                                    <input class="form-control" ng-model="asset.name" type="text" name="asset_name" placeholder="ex: Mike" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Model
+															</label>
+                                                    <input class="form-control" type="text" ng-model="asset.model" name="model" required="true" placeholder="ex: Andrew" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Serial Number<star>*</star>
+															</label>
+                                                    <input class="form-control" type="text" ng-model="asset.serial_number" name="serial" placeholder="ex: hello@example.com" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab2">
+                                        <h5 class="text-center">Please give us more details about your asset.</h5>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <label class="control-label">Manufacturer<star>*</star></label>
+                                                    <input class="form-control" type="text" ng-model="asset.manufacturer" name="manufacturer" placeholder="ex: HP" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- <div class="col-md-5 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <label class="control-label">Model</label>
+                                                    <input class="form-control" type="text" name="model" placeholder="ex: HP-255-G5-Notebook-PC" />
+                                                </div>
+                                            </div> -->
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Status<star>*</star>
+															</label>
+                                                    <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, that's why we use the "default select" inside this wizard. We will try to contact the guys who are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
+		                                                     -->
+                                                    <select class="form-control" ng-model="asset.status" name="asset_status">
+		                                                        <option selected="" disabled="">Asset Status</option>
+		                                                        <option >In Storage</option>
+		                                                        <option >In Use</option>
+		                                                        <option >Loaned Out</option>
+		                                                        <option>Out for Repair</option>
+		                                                        <option >Untraceable</option>
+		                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Purchase Date<star>*</star>
+															</label>
+                                                 <input class="form-control" ng-model="asset.purchase_date" name="purchase_date" type="date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Asset Type
+															</label>
+                                                    <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, that's why we use the "default select" inside this wizard. We will try to contact the guys who are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
+		                                                     -->
+                                                    <select class="form-control" ng-model="asset.type" name="asset_type">
+		                                                        <option selected="" disabled=""> Select Asset Type</option>
+		                                                        <option>Laptop</option>
+		                                                        <option >Smartphone</option>
+		                                                        <option >Keyboard</option>
+                                                                <option >Mouse</option>
+                                                                <option >Speaker</option>
+		                                                        <option >House</option>
+		                                                        <option >Car</option>
+		                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="control-label">Asset Price</label>
+                                                    <input class="form-control"  ng-model="asset.price" type="text" name="asset_price" placeholder="ex: 19.00" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div class="form-group">
+                                                   <div class="form-group">
+                                                    <label class="control-label">
+																Warranty/Expiry Date<star>*</star>
+															</label>
+                                                 <input class="form-control" ng-model="asset.expiry_date" name="expiry" type="date">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+																Purchase Date<star>*</star>
+															</label>
+                                                 <input class="form-control" type="text" id="datepicker">
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab3">
+                                        <h2 class="text-center text-space"><small> Click on "<b>Finish</b>" to add new asset</small></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-default btn-fill btn-wd btn-back pull-left">Back</button>
+                                <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Next</button>
+                                <button type="button" class="btn btn-info btn-fill btn-wd btn-finish pull-right" ng-click="onFinishWizard(asset)">Finish</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                    Home
+                                </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                    Company
+                                </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                    Portfolio
+                                </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                    Blog
+                                </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                    <a href="#">Amaze Admin</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+</div>

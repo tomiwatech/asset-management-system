@@ -12,7 +12,7 @@ npm install
 npm start
 
 # NB
-You can change the install mongo db locally and point it to the one you installed instead of using mlab.
+You can choose to install mongo db locally and point it to the one you installed instead of using mlab.
 Check config.js for more info
 
 ```

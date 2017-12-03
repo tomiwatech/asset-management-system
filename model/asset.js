@@ -9,7 +9,7 @@ var AssetSchema = new Schema({
     asset_status: String,
     asset_purchase_date: String,
     asset_type: String,
-    asset_price: String,
+    asset_price: Number,
     asset_expiry_date: String
 },
     {

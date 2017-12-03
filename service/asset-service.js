@@ -74,6 +74,12 @@ AssetService.allAssets = function(next){
     });
 }
 
+AssetService.countAll = function(next){
+    Asset.count(function(err,asset){
+        return next(err,asset);
+    })
+}
+
 AssetService.deleteAsset = function (id, next) {
 
     Asset.remove({"_id" : id}, function (err) {

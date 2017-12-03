@@ -83,48 +83,50 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="content">
-                            <h4 class="title">Simple Table with Hover</h4>
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead class="text-primary">
-                                        <tr>
-                                            <th>Serial Number</th>
-                                            <th>Asset Name</th>
-                                            <th>Asset Type</th>
-                                            <th>Manufacturer</th>
-                                            <th>Asset Status</th>
-                                            <th>Asset Price</th>
-                                            <th>Delete Asset</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="asset in assets">
-                                            <td>{{asset.asset_serial_number}}</td>
-                                            <td>{{asset.asset_name}}</td>
-                                            <td>{{asset.asset_type}}</td>
-                                            <td>{{asset.asset_manufacturer}}</td>
-                                            <td>{{asset.asset_status}}</td>
-                                            <td>{{asset.asset_price}}</td>
-                                            <td><button class="btn btn-danger" ng-click="deleteAsset(asset._id)">Remove</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="header text-center">
+                    <h3 class="title">Documentation</h3>
+                    <p class="category">A how-to guide and helpful informations about configuration and options in theme.</p>
+                </div>
+                <div class="card f-16 f-300">
+                    <div class="header">
+                        <h3>INTRODUCTION </h3>
+                    </div>
+                    <div class="content">
+                        <p> Thank you for purchasing Amaze, a template for admin dashboards and control panels. It is a responsive
+                            HTML template that is based on the CSS framework Bootstrap 3. If you are unfamiliar with Bootstrap,
+                            visit their website and read through the documentation. All of Bootstrap components have been
+                            modified to fit the style of Amaze and provide a consistent look throughout the template.</p>
+                        <p>This documentation will provide information on how the template is structured and configuration of
+                            various components that are bundled with the template. </p>
+                        <p>Before you start working with the template, we suggest you to go through the pages that are bundled
+                            with the theme. Most of the template example pages contain quick tips on how to create or use
+                            a component which can be really helpful when you need to create something on the fly.</p>
+                        <p>Built with <a href="http://sass-lang.com/" target="_blank">SaSS</a>. This theme uses the Sass compiler
+                            to make it easier to customize and use. Sass is the most mature, stable, and powerful professional
+                            grade CSS extension language in the world.</p>
+                        <p><strong>Note</strong>: We are trying our best to document how to use the template. If you think that
+                            something is missing from the documentation, please do not hesitate to tell us about it. If you
+                            have any questions or problems with this theme please use Envato Marketplace contact form on
+                            our profile or email us at support@urbanui.com
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="header">
+                        <h3>GETTING STARTED</h3>
+                    </div>
+
+                    <div class="content">
+                        <h1>Hello</h1>
                     </div>
                 </div>
             </div>
         </div>
 
-
-     
-
-
     </div>
-
 </div>

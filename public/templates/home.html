@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" ng-controller="homeController">
     <div class="sidebar" data-background-color="brown" data-active-color="danger">
         <div class="logo">
             <a href="#" class="simple-text">
@@ -30,30 +30,31 @@
 							<p>View Assets</p>
 						</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="docs/documentation.html">
 							<i class="ti-clipboard"></i>
 							<p>License</p>
 						</a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <a href="docs/documentation.html">
 							<i class="ti-clipboard"></i>
 							<p>Asset Categories</p>
 						</a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="docs/documentation.html">
+                    <a ui-sref="maintain">
 							<i class="ti-clipboard"></i>
 							<p>Track Assets</p>
 						</a>
                 </li>
                 <li>
-                    <a href="docs/documentation.html">
+                    <a ui-sref="document">
 							<i class="ti-clipboard"></i>
 							<p>Maintain Assets</p>
 						</a>
                 </li>
+
             </ul>
 
         </div>
@@ -82,7 +83,7 @@
                 </div>
             </div>
         </nav>
-        <div class="content" ng-controller="homeCtrl">
+        <div class="content">
             <div class="container-fluid">
 
                 <div class="row">
@@ -98,14 +99,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>All Assets</p>
-                                            70,340
+                                           {{total}}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="ti-alert text-warning"></i> 65% lower than last month
+                                    <!-- <i class="ti-alert text-warning"></i> 65% lower than last month -->
                                 </div>
                             </div>
                         </div>
@@ -122,14 +123,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Asset Worth</p>
-                                            102
+                                            {{assetWorth}}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="ti-tag text-warning"></i> Product-wise sales
+                                    <!-- <i class="ti-tag text-warning"></i> Product-wise sales -->
                                 </div>
                             </div>
                         </div>
@@ -145,15 +146,15 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Revenue</p>
-                                            $23,100
+                                            <p>Vendor</p>
+                                           2
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="ti-calendar"></i> Weekly sales
+                                    <!-- <i class="ti-calendar"></i> Weekly sales -->
                                 </div>
                             </div>
                         </div>
@@ -170,14 +171,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Followers</p>
-                                            +245
+                                            10
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="ti-reload"></i> Just Updated
+                                    <!-- <i class="ti-reload"></i> Just Updated -->
                                 </div>
                             </div>
                         </div>
@@ -552,6 +553,41 @@
                         </div>
                     </div>
                 </div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="content">
+                                <h4 class="title">All Registered Assets</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>Serial Number</th>
+                                                <th>Asset Name</th>
+                                                <th>Asset Type</th>
+                                                <th>Manufacturer</th>
+                                                <th>Asset Status</th>
+                                                <th>Asset Price</th>
+                                                <th>Delete Asset</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="asset in assets">
+                                                <td>{{asset.asset_serial_number}}</td>
+                                                <td>{{asset.asset_name}}</td>
+                                                <td>{{asset.asset_type}}</td>
+                                                <td>{{asset.asset_manufacturer}}</td>
+                                                <td>{{asset.asset_status}}</td>
+                                                <td>{{asset.asset_price}}</td>
+                                                <td><button class="btn btn-danger" ng-click="deleteAsset(asset._id)">Remove</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

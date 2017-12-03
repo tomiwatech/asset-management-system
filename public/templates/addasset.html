@@ -25,31 +25,31 @@
 						</a>
                 </li>
                 <li>
-                    <a ui-sref="allassets" >
+                    <a ui-sref="allassets">
 							<i class="ti-clipboard"></i>
 							<p>View Assets</p>
 						</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="docs/documentation.html">
 							<i class="ti-clipboard"></i>
 							<p>License</p>
 						</a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <a href="docs/documentation.html">
 							<i class="ti-clipboard"></i>
 							<p>Asset Categories</p>
 						</a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="docs/documentation.html">
+                    <a ui-sref="maintain">
 							<i class="ti-clipboard"></i>
 							<p>Track Assets</p>
 						</a>
                 </li>
                 <li>
-                    <a href="docs/documentation.html">
+                    <a ui-sref="document">
 							<i class="ti-clipboard"></i>
 							<p>Maintain Assets</p>
 						</a>
@@ -93,14 +93,14 @@
                                 <p class="category">Split a complicated flow in multiple steps</p>
                             </div>
                             <div class="content">
-                                <ul class="nav">
+                                <!-- <ul class="nav">
                                     <li><a href="#tab1" data-toggle="tab">First Tab</a></li>
                                     <li><a href="#tab2" data-toggle="tab">Second Tab</a></li>
                                     <li><a href="#tab3" data-toggle="tab">Third Tab</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane" id="tab1">
-                                        <h5 class="text-center">Please tell us more about yourself.</h5>
+                                </ul> -->
+                                <div class="">
+                                    <div class="">
+                                        <h5 class="text-center">Please tell us more about your asset.</h5>
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
                                                 <div class="form-group">
@@ -125,12 +125,13 @@
                                                     <label class="control-label">
 																Serial Number<star>*</star>
 															</label>
-                                                    <input class="form-control" type="text" ng-model="asset.serial_number" name="serial" placeholder="ex: hello@example.com" />
+                                                    <input class="form-control" type="text" ng-model="asset.serial_number" name="serial" placeholder="ex: hello@example.com"
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab2">
+                                    <div class="" id="">
                                         <h5 class="text-center">Please give us more details about your asset.</h5>
                                         <div class="row">
                                             <div class="col-md-10 col-md-offset-1">
@@ -141,12 +142,6 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <!-- <div class="col-md-5 col-md-offset-1">
-                                                <div class="form-group">
-                                                    <label class="control-label">Model</label>
-                                                    <input class="form-control" type="text" name="model" placeholder="ex: HP-255-G5-Notebook-PC" />
-                                                </div>
-                                            </div> -->
                                             <div class="col-md-5 col-md-offset-1">
                                                 <div class="form-group">
                                                     <label class="control-label">
@@ -169,7 +164,7 @@
                                                     <label class="control-label">
 																Purchase Date<star>*</star>
 															</label>
-                                                 <input class="form-control" ng-model="asset.purchase_date" name="purchase_date" type="date">
+                                                    <input class="form-control" ng-model="asset.purchase_date" name="purchase_date" type="date">
                                                 </div>
                                             </div>
                                         </div>
@@ -196,19 +191,19 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label class="control-label">Asset Price</label>
-                                                    <input class="form-control"  ng-model="asset.price" type="text" name="asset_price" placeholder="ex: 19.00" />
+                                                    <input class="form-control" ng-model="asset.price" type="text" name="asset_price" placeholder="ex: 19.00" />
                                                 </div>
                                             </div>
                                         </div>
-                                          <div class="row">
+                                        <div class="row">
                                             <div class="col-md-10 col-md-offset-1">
                                                 <div class="form-group">
-                                                   <div class="form-group">
-                                                    <label class="control-label">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
 																Warranty/Expiry Date<star>*</star>
 															</label>
-                                                 <input class="form-control" ng-model="asset.expiry_date" name="expiry" type="date">
-                                                </div>
+                                                        <input class="form-control" ng-model="asset.expiry_date" name="expiry" type="date">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- <div class="col-md-5">
@@ -221,16 +216,18 @@
                                             </div> -->
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab3">
+                                    <div class="" id="">
                                         <h2 class="text-center text-space"><small> Click on "<b>Finish</b>" to add new asset</small></h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="button" class="btn btn-default btn-fill btn-wd btn-back pull-left">Back</button>
-                                <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Next</button>
-                                <button type="button" class="btn btn-info btn-fill btn-wd btn-finish pull-right" ng-click="onFinishWizard(asset)">Finish</button>
-                                <div class="clearfix"></div>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-5">
+                                        <button type="button" class="btn btn-info btn-fill" ng-click="onFinishWizard(asset)">Finish</button>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -238,41 +235,7 @@
             </div>
         </div>
 
-        <!-- <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                    Home
-                                </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                    Company
-                                </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                    Portfolio
-                                </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                    Blog
-                                </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    <a href="#">Amaze Admin</a>
-                </p>
-            </div>
-        </footer> -->
+
 
     </div>
 

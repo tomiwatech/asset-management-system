@@ -77,6 +77,12 @@ UserService.updateUser = function(userdata, next){
     })
 }
 
+UserService.countAll = function(next){
+    User.count(function(err,asset){
+        return next(err,asset);
+    })
+}
+
 UserService.deleteUser = function (id, next) {
 
     User.remove({"_id" : id}, function (err) {

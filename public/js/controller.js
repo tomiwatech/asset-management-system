@@ -393,6 +393,12 @@ app.controller('homeController', function ($scope, $http) {
 
         });
 
+        $http.get('/users/count').then(function (response) {
+
+            $scope.totalAdmin = response.data.total;
+
+        });
+
         $http.get('/assets').then(function (response) {
 
             $scope.assets = response.data.assets;

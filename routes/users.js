@@ -29,6 +29,32 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.get('/count', function (req, res, next) {
+
+    UserService.countAll(function (err, result) {
+        if (err) {
+            return res.json({
+                'responseCode': '03',
+                'responseMessage': 'Error fetching assets total'
+            });
+        }
+
+
+        if (result) {
+            return res.json({
+                'responseCode': '00',
+                'responseMessage': 'Successfully fetched assets total',
+                'total': result
+            });
+        }
+
+        return res.json({
+            'responseCode': '02',
+            'responseMessage': 'No assets in db'
+        });
+    });
+});
+
 //Find One
 router.post('/authenticate', function (req, res, next) {
     var data = req.body;
